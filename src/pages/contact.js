@@ -5,9 +5,9 @@ const Contact = () => {
     <div
       style={{
         display: 'flex',
-        justifyContent: 'Right',
-        alignItems: 'Right',
-        height: '100vh'
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '10vh'
       }}
     >
       <h1>Welcome</h1>

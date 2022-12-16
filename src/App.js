@@ -7,17 +7,19 @@ import About from './pages/about';
 import Houses from './pages/houses';
 import Contact from './pages/contact';
 import SignUp from './pages/signup';
-  
+
+
 function App() {
   return (
     <Router>
       <Navbar />
       <Routes>
-        <Route path='/home' exact component={Home} />
-        <Route path='/about' component={About} />
-        <Route path='/houses' component={Houses} />
-        <Route path='/contact' component={Contact} />
-        <Route path='/sign-up' component={SignUp} />
+        <Route path='/home' element={<Home/>} />
+        <Route path='/about' element={<About/>} /> 
+        <Route path='/houses' element={<Houses/>} />
+        <Route path='/contact' element={<Contact/>} />
+        <Route path='/sign-up' element={<SignUp/>} />
+        {/* <Route path='/login' element={<login/>} /> */}
       </Routes>
     </Router>
   );
