@@ -1,38 +1,41 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Lobster&family=Montserrat&family=Open+Sans:ital,wght@1,300&family=Rowdies&display=swap');
+
+
+body{
+  font-family: 'Grenze', serif;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.round{
+width: 60px;
+height: 60px;
+padding: 10px;
+align-items: left;
+border-radius: 25px;
+@keyframes {
+from {
+  transform: rotate(0deg);
+}
+to {
+  transform: rotate(360deg);
+}
+}
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+ #header {
+  text-justify: distribute;
+  color: aliceblue;
+  padding: 10%;
+  min-height: 10vh;
+  background:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,4,0)), url(./images/dillon-kydd-2keCPb73aQY-unsplash.jpg)center/cover no-repeat fixed;
+} 
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.height{
+  min-height: 40vh;
+}
+.height-80{
+  min-height: 10vh;
+  min-width: 100vh;
 }
