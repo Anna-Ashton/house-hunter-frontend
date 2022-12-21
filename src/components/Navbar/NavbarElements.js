@@ -4,6 +4,7 @@ import styled from 'styled-components';
   
 export const Nav = styled.nav`
   background: #F5EDF0;
+  position: sticky;
   height: 85px;
   display: flex;
   justify-content: space-between;
@@ -84,3 +85,5 @@ export const NavBtnLink = styled(Link)`
     color: #808080;
   }
 `;
+
+  

@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
       <>
         <Nav>
-          <Bars />
+          
     
           <NavMenu>
             <NavLink to='/home' activeStyle>
@@ -28,6 +28,7 @@ const Navbar = () => {
             <NavBtnLink to='/login'>Login</NavBtnLink>
           </NavBtn>
         </Nav>
+        <Bars />
       </>
     );
   };
