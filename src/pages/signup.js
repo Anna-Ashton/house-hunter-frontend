@@ -27,15 +27,15 @@ function SignUp() {
               <p className="text-white-50 mb-3">Please enter your login and password!</p>
 
               <MDBCol col='6'>
-              <MDBInput wrapperClass='mb-4' label='First name' id='form1' type='text'/>
+              <MDBInput wrapperClass='mb-4' label='Fullname' id='form1' type='text'/>
             </MDBCol>
 
             <MDBCol col='6'>
-              <MDBInput wrapperClass='mb-4' label='Last name' id='form1' type='text'/>
+              <MDBInput wrapperClass='mb-4' label='Email address' id='form1' type='email'/>
             </MDBCol>
 
-              <MDBInput wrapperClass='mb-4 w-100' label='Email address' id='formControlLg' type='email' size="lg"/>
               <MDBInput wrapperClass='mb-4 w-100' label='Password' id='formControlLg' type='password' size="lg"/>
+              <MDBInput wrapperClass='mb-4 w-100' label='Password confirmation' id='formControlLg' type='password' size="lg"/>
 
               <MDBBtn size='small'>
                 SIGN UP
