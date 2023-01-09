@@ -7,7 +7,7 @@ export const Nav = styled.nav`
   height: 85px;
   display: flex;
   justify-content: space-between;
-  padding: 0.2rem calc((100vw - 1000px) / 2);
+  padding: 0.1rem calc((100vw - 1300px) / 2);
   z-index: 12;
   /* Third Nav */
   /* justify-content: flex-start; */
@@ -19,7 +19,7 @@ font-family: "Fredoka One", Sans-serif;
 display: flex;
 align-items: center;
 text-decoration: none;
-padding: 30px;
+padding: 33px;
 height: 100%;
 cursor: pointer;
 &.active {
@@ -44,7 +44,7 @@ color: #808080;
 export const NavMenu = styled.div`
 display: flex;
 align-items: center;
-margin-right: -24px;
+margin-right: -29px;
 /* Second Nav */
 /* margin-right: 24px; */
 /* Third Nav */
@@ -59,7 +59,7 @@ export const NavBtn = styled.nav`
 display: flex;
 justify-content: space-between;
 align-items: center;
-margin-left: 550px;
+margin-left: 100px;
 /* Third Nav */
 /* justify-content: flex-end;
 width: 100vw; */
@@ -71,7 +71,7 @@ width: 100vw; */
 `;
 
 export const NavBtnLink = styled(Link)`
-border-radius: 4px;
+border-radius: 40px;
 background: #2D080A;
 padding: 10px 22px;
 
