@@ -23,13 +23,16 @@ const Navbar = () => {
             <NavLink to='/about' activeStyle>
               About
             </NavLink>
+            <NavLink to='/contact' activeStyle>
+              Contact
+            </NavLink>
           </NavMenu>
           <NavBtn>
             <NavBtnLink to='/login'>Login</NavBtnLink>
           </NavBtn>
-          <NavBtn>
+          {/* <NavBtn>
             <NavBtnLink to='/logout'>Logout</NavBtnLink>
-          </NavBtn>
+          </NavBtn> */}
         </Nav>
         <Bars />
       </>

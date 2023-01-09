@@ -7,7 +7,7 @@ import About from './pages/about';
 import Houses from './pages/houses';
 import SignUp from './pages/signup';
 import Owners from './pages/owners';
-import Logout from './pages/logout';
+import Contact from './pages/contact';
 import Login from './pages/login';
 
 
@@ -22,7 +22,7 @@ function App() {
         <Route path='/sign-up' element={<SignUp/>} />
         <Route path='/login' element={<Login/>} /> 
         <Route path='/owners' element={<Owners/>} /> 
-        <Route path='/logout' element={<Logout/>} /> 
+        <Route path='/contact' element={<Contact/>} /> 
       </Routes>
     </Router>
   );
