@@ -1,6 +1,6 @@
 import React from 'react';
   
-const   Logout = () => {
+const   Contact = () => {
   return (
     <div
       style={{
@@ -10,8 +10,8 @@ const   Logout = () => {
         height: '10vh'
       }}
     >
-      <h1>Logout</h1>
+      <h1>Contact</h1>
    </div>
   );
 };
-export default Logout
+export default Contact
