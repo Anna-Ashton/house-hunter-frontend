@@ -5,8 +5,6 @@ const Navbar = () => {
     return (
       <>
         <Nav>
-          
-    
           <NavMenu>
             <NavLink to='/home' activeStyle>
                Home
