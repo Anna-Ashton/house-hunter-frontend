@@ -1,17 +1,30 @@
-import React from 'react'
-import Home from '../homepage/Home'
-import Login from '../login/Login'
-import SignUp from '../signup/SignUp'
-import Housing from '../housing/Housing'
+import React, { useState } from 'react'
+
 import "./navbar.css"
+import { Link } from 'react-router-dom'
+
+
 
 export default function Navbar() {
+  const [setClick] = useState(false);
+  const closeMobileMenu = () => setClick(false);
+
   return (
     <div className='navbar'>
-        <div className='nav-item'><Home/></div>
-        <div className='nav-item'><Login/></div>
-        <div className='nav-item'><SignUp/></div>
-        <div className='nav-item'><Housing/></div>
+        <li className='nav-item'>
+          <Link to ='/' className='nav-links' onClick={closeMobileMenu}>
+            Home
+          </Link>
+          <Link to ='/login' className='nav-links' onClick={closeMobileMenu}>
+            Login
+          </Link>
+          <Link to ='/signup' className='nav-links' onClick={closeMobileMenu}>
+            SignUp
+          </Link>
+          <Link to ='/housing' className='nav-links' onClick={closeMobileMenu}>
+            Housing
+          </Link>
+        </li>
     </div>
     
   )
