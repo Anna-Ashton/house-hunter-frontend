@@ -7,11 +7,11 @@ import "./navbar.css"
 
 export default function Navbar() {
   return (
-    <div>Navbar
-        <div><Home/></div>
-        <div><Login/></div>
-        <div><SignUp/></div>
-        <div><Housing/></div>
+    <div className='navbar'>
+        <div className='nav-item'><Home/></div>
+        <div className='nav-item'><Login/></div>
+        <div className='nav-item'><SignUp/></div>
+        <div className='nav-item'><Housing/></div>
     </div>
     
   )
