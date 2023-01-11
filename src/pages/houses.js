@@ -17,7 +17,7 @@ function houses() {
       <div className="houses__wrapper">
           <ul className="houses__list">
             <img src = "https://commercialpropertykenya.com/wp-content/uploads/2020/01/Mahiga-Homes-11.jpeg" />
-            <h4>4 Bedroom Apartment in Jamhuri Estate, Ngong Road</h4>
+            <h5>4 Bedroom Apartment in Jamhuri Estate, Ngong Road</h5>
             <MDBBtn size = 'small' >KSH 60,000 </MDBBtn>
           </ul>
 
