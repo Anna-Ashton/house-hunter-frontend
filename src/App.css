@@ -250,24 +250,21 @@ header h2 {
     }
 }
 
-.houses {
-  padding: 4rem;
-  background-color: #d2f6fe;
-  display: inline-block;
-  flex-flow: column;
-  align-items: center;
-  width: 100%;
-  margin: 0 auto;
-}
 
-.houses_container {
+.houses__container {
   display: flex;
   flex-flow: column;
   align-items: center;
+  max-width: 1120px;
+  width: 90%;
   margin: 0 auto;
 }
 
-.houses_wrapper {
+h5 {
+  text-align: center;
+}
+
+.houses__wrapper {
   margin-bottom: 14px;
   display: flex;
   flex: 1;
@@ -275,10 +272,13 @@ header h2 {
   border-radius: 100px;
   flex-flow: column;
   align-items: center;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.houses_list {
+.houses__list {
   position: relative;
+  margin: 50px 0 45px;
+  margin-top: 20px;
 }
 
