@@ -249,3 +249,36 @@ header h2 {
         width: 200px;
     }
 }
+
+.houses {
+  padding: 4rem;
+  background-color: #d2f6fe;
+  display: inline-block;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.houses_container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.houses_wrapper {
+  margin-bottom: 14px;
+  display: flex;
+  flex: 1;
+  margin: 0 1rem;
+  border-radius: 100px;
+  flex-flow: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.houses_list {
+  position: relative;
+}
+
