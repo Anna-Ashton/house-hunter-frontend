@@ -1,107 +1,70 @@
+import React, { useState } from 'react'
 
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.css';
-import {useNavigate} from 'react-router-dom'
-import {
-  MDBBtn,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
-  MDBIcon,
-  MDBCheckbox
-}
-from 'mdb-react-ui-kit';
-
-const [email,setEmail] =("")
-const [password, setPassword] = ("")
-const [ user, setUser] = ("")
-const url = ' http://127.0.0.1:3000/login'
-function Login() {
-
-    const navigate = useNavigate()
-
-  const handleSubmit = e => {
-    e.preventDefault();
-
-fetch(url, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
-  body: JSON.stringify({email,password}),
-})
-  .then((r) => r.json())
-  .then((data) => {
-    // save the token to localStorage for future access
-    localStorage.setItem("jwt", data.jwt);
-    // save the user somewhere (in state!) to log the user in
-    setUser(data.user);
+const Login = () => {
+  const [credentials, setCredentials] = useState({
+    username: '',
+    password: ''
   });
-  navigate("/house")
+
+  const handleChange = event => {
+    event.persist();
+    setCredentials(credentials => ({
+      ...credentials,
+      [event.target.name]: event.target.value
+    }));
   }
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(credentials);
+    // Send a request to the server with the credentials
+    // If the credentials are valid, log the user in
+    // If the credentials are invalid, display an error message
+  }
 
   return (
-
-
-
-
-
-   <form onSubmit={handleSubmit}>
-
-      <MDBRow className='d-flex justify-content-center align-items-center h-100'>
-        <MDBCol col='12'>
-
-          <MDBCard className='bg-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '500px'}}>
-            <MDBCardBody className='p-5 w-100 d-flex flex-column'>
-
-              <h2 className="fw-bold mb-2 text-center">Login</h2>
-              <p className="text-white-50 mb-3">Please enter your login and password!</p>
-
-
-
-              <MDBInput wrapperClass='mb-4 w-100' label='Email address' id='formControlLg' type='email' size="lg"
-              value={email}
-          onChange={(e) => setEmail(e.target.value)}
-              />
-
-              <MDBInput wrapperClass='mb-4 w-100' label='Password' id='formControlLg' type='password' size="lg"
-              value={password}
-          onChange={(e) => setPassword(e.target.value)}
-              />
-
-              <MDBCheckbox name='flexCheck' id='flexCheckDefault' className='mb-4' label='Remember password' />
-
-              <MDBBtn size='lg' >
-                Login
-              </MDBBtn>
-
-              <hr className="my-4" />
-
-              <MDBBtn className="mb-2 w-100" size="lg" style={{backgroundColor: '#dd4b39'}}>
-                <MDBIcon fab icon="google" className="mx-2"/>
-                Sign in with google
-              </MDBBtn>
-
-              <MDBBtn className="mb-4 w-100" size="lg" style={{backgroundColor: '#3b5998'}}>
-                <MDBIcon fab icon="facebook-f" className="mx-2"/>
-                Sign in with facebook
-              </MDBBtn>
-
-            </MDBCardBody>
-          </MDBCard>
-
-        </MDBCol>
-      </MDBRow>
-
-   </form>
-  );
+    <div className="vh-100">
+    <div className="container py-5 h-100">
+      <div className="row d-flex justify-content-center align-items-center h-100">
+        <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div className="card shadow-2-strong">
+            <div className="card-body p-5 text-center"></div>
+    <form onSubmit={handleSubmit}>
+      <label>
+      <h3 className="container mb-5" id="sign-in">LOGIN</h3>
+              <p className="mb-4">Please fill in the details!</p>
+              <div className="form-outline mb-4"> 
+        Username:
+        <input
+          type="text"
+          name="username"
+          className="form-control form-control-lg"
+          value={credentials.username}
+          onChange={handleChange}
+        />
+        </div>
+      </label>
+      <label>
+        Password:
+        <input
+          type="password"
+          name="password"
+          className="form-control form-control-lg"
+          value={credentials.password}
+          onChange={handleChange}
+        />
+        </label>
+        <p class="mb-0">Don't have an account? <a href="./signup" class="text-black-50 fw-bold">Sign Up</a></p>
+      <div class="text-center p-5">
+          <button type="submit" class="subscribe">LOGIN</button>
+        </div>
+    </form>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+  )
 }
-  
-
 
 export default Login
-

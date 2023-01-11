@@ -1,6 +1,6 @@
 import React from 'react';
   
-const Contact = () => {
+const   Contact = () => {
   return (
     <div
       style={{
@@ -10,9 +10,8 @@ const Contact = () => {
         height: '10vh'
       }}
     >
-      <h1>Welcome</h1>
-    </div>
+      <h1>Contact</h1>
+   </div>
   );
 };
-  
-export default Contact;
+export default Contact
