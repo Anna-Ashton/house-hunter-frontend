@@ -1,8 +1,9 @@
+
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
+import {useNavigate} from 'react-router-dom'
 import {
   MDBBtn,
-  MDBContainer,
   MDBRow,
   MDBCol,
   MDBCard,
@@ -13,9 +14,43 @@ import {
 }
 from 'mdb-react-ui-kit';
 
-function login() {
+const [email,setEmail] =("")
+const [password, setPassword] = ("")
+const [ user, setUser] = ("")
+const url = ' http://127.0.0.1:3000/login'
+function Login() {
+
+    const navigate = useNavigate()
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+fetch(url, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  },
+  body: JSON.stringify({email,password}),
+})
+  .then((r) => r.json())
+  .then((data) => {
+    // save the token to localStorage for future access
+    localStorage.setItem("jwt", data.jwt);
+    // save the user somewhere (in state!) to log the user in
+    setUser(data.user);
+  });
+  navigate("/house")
+  }
+
+
   return (
-    <MDBContainer fluid>
+
+
+
+
+
+   <form onSubmit={handleSubmit}>
 
       <MDBRow className='d-flex justify-content-center align-items-center h-100'>
         <MDBCol col='12'>
@@ -23,15 +58,24 @@ function login() {
           <MDBCard className='bg-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '500px'}}>
             <MDBCardBody className='p-5 w-100 d-flex flex-column'>
 
-              <h2 className="fw-bold mb-2 text-center">Sign in</h2>
+              <h2 className="fw-bold mb-2 text-center">Login</h2>
               <p className="text-white-50 mb-3">Please enter your login and password!</p>
 
-              <MDBInput wrapperClass='mb-4 w-100' label='Email address' id='formControlLg' type='email' size="lg"/>
-              <MDBInput wrapperClass='mb-4 w-100' label='Password' id='formControlLg' type='password' size="lg"/>
+
+
+              <MDBInput wrapperClass='mb-4 w-100' label='Email address' id='formControlLg' type='email' size="lg"
+              value={email}
+          onChange={(e) => setEmail(e.target.value)}
+              />
+
+              <MDBInput wrapperClass='mb-4 w-100' label='Password' id='formControlLg' type='password' size="lg"
+              value={password}
+          onChange={(e) => setPassword(e.target.value)}
+              />
 
               <MDBCheckbox name='flexCheck' id='flexCheckDefault' className='mb-4' label='Remember password' />
 
-              <MDBBtn size='lg'>
+              <MDBBtn size='lg' >
                 Login
               </MDBBtn>
 
@@ -53,10 +97,11 @@ function login() {
         </MDBCol>
       </MDBRow>
 
-    </MDBContainer>
+   </form>
   );
 }
   
 
 
-export default login
+export default Login
+
