@@ -107,7 +107,9 @@ Bedrooms:
 </form>
 
 ) : (
+  
 <form className='form'   onSubmit={handleCreate}>
+  <div className='cc'>
 <label className='label'>
 Image:
 <input   className="form-control form-control-lg"type="text" name="image" value={inputs.image} onChange={handleChange} />
@@ -132,6 +134,7 @@ Type:
 Bedrooms:
 <input className="form-control form-control-lg" type="number" name="bedrooms" value={inputs.bedrooms} onChange={handleChange} />
 </label>
+</div>
 <div class="text-center p-4">
           <button type="submit" class="subscribe">UPLOAD</button>
         </div>

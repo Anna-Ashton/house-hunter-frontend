@@ -265,6 +265,10 @@ EDIT */
   cursor: pointer;
 }
 
+.scribe{
+
+}
+
 
 .subscribe{
   width: 150px;
@@ -323,12 +327,17 @@ EDIT */
 
   .form{
     padding-top: 30px;
-    padding-left: 130px;
+    padding-left: 10px;
     display: table;
     align-items: center;
   }
 
   .label{
     padding: 10px;
+  }
+
+
+  .cc{
+    padding-left: 130px;
   }
   
