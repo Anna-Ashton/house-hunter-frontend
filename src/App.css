@@ -252,8 +252,37 @@ header {
     }
 }
 
-/* 
-EDIT */
+.houses__container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  max-width: 1120px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+h5 {
+  text-align: left;
+}
+
+.houses__wrapper {
+  margin-bottom: 14px;
+  display: flex;
+  flex: 1;
+  margin: 0 1rem;
+  border-radius: 100px;
+  flex-flow: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.houses__list {
+  position: relative;
+  margin: 50px 0 45px;
+  margin-top: 20px;
+}
+
 
 .vh-100{
   background-size: contain;
@@ -336,6 +365,9 @@ EDIT */
   .label{
     padding: 10px;
   }
+
+
+
 
 
   .cc{
