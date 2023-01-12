@@ -302,16 +302,17 @@ EDIT */
   /* ///ownwer  styles*/
   .house-card {
     display: flex;
-    flex-direction:row;
-    align-items: center;
+    flex-direction:row; 
+     align-items: center;
     padding: 1rem;
-    margin: 1rem;
+    margin: 1rem; 
     border: 1px solid gray;
     border-radius: 0px;
   }
   
   .house-card img {
     width: 15%;
+    align-items:left;
   }
   
   .house-card button {
