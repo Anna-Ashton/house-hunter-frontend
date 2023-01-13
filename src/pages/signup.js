@@ -87,7 +87,7 @@ export default function ContactPage() {
                 </div>
                 <div className="contact-text">
                   <h5>Address</h5>
-                  <p>40 W 34th St.. Nairobi Kenya</p>
+                  <p>Ngong Lane ..Nairobi Kenya</p>
                 </div>
               </div>
 
@@ -99,7 +99,7 @@ export default function ContactPage() {
                 </div>
                 <div className="contact-text">
                   <h5>Phone</h5>
-                  <p>+25471234565</p>
+                  <p>+254234234234</p>
                 </div>
               </div>
 
@@ -110,8 +110,8 @@ export default function ContactPage() {
                   </i>
                 </div>
                 <div className="contact-text">
-                  <h5>Mail</h5>
-                  <p>allinevents.support@gmail.com</p>
+                  <h5>Mail Us</h5>
+                  <p>keja_hunters@gmail.com</p>
                 </div>
               </div>
             </div>
