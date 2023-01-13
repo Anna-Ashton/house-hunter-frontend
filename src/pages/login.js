@@ -1,70 +1,142 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [credentials, setCredentials] = useState({
-    username: '',
-    password: ''
-  });
+  const navigate = useNavigate();
 
-  const handleChange = event => {
-    event.persist();
-    setCredentials(credentials => ({
-      ...credentials,
-      [event.target.name]: event.target.value
-    }));
+  const [error, setError] = useState(null);
+  const [notify, setNotify] = useState(false);
+  const [username, setUserName] = useState ("");
+  const [password, setPassword] = useState("")
+
+  // // const [credentials, setCredentials] = useState({
+  //   username: "",
+  //   password: "",
+  // });
+  function notifyUser(){
+    setNotify((notify) => !notify);
+  setTimeout(endNotification, 1000)
   }
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    console.log(credentials);
-    // Send a request to the server with the credentials
-    // If the credentials are valid, log the user in
-    // If the credentials are invalid, display an error message
-  }
+  // function handleChange(e){
+  //   e.preventDefault();
 
+  //   const { value, name } = e.currentTarget;
+
+  //   setCredentials({
+  //     ...credentials,
+  //     [name]: value,
+  //   });
+  // }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(credentials);
+    setError(null)
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+        Authorization: localStorage.token
+      },
+      body: JSON.stringify({username, password}),
+    })
+    .then((res) => {
+      if(res.ok) {
+        res.json().then((user) => {
+          notifyUser();
+          localStorage.setItem("token", user.jwt);
+          localStorage.setItem("user", `${user.user.id}`);        
+        });
+      } else {
+        res.json().then((error) => setError(error));
+      }
+    })
+  };
+
+  
+
+
+  function endNotification() {
+    setNotify((notify) => !notify);
+    navigate("/owners")
+  }
   return (
     <div className="vh-100">
-    <div className="container py-5 h-100">
-      <div className="row d-flex justify-content-center align-items-center h-100">
-        <div className="col-12 col-md-8 col-lg-6 col-xl-5">
-          <div className="card shadow-2-strong">
-            <div className="card-body p-5 text-center"></div>
-    <form onSubmit={handleSubmit}>
-      <label>
-      <h3 className="container mb-5" id="sign-in">LOGIN</h3>
-              <p className="mb-4">Please fill in the details!</p>
-              <div className="form-outline mb-4"> 
-        Username:
-        <input
-          type="text"
-          name="username"
-          className="form-control form-control-lg"
-          value={credentials.username}
-          onChange={handleChange}
-        />
-        </div>
-      </label>
-      <label>
-        Password:
-        <input
-          type="password"
-          name="password"
-          className="form-control form-control-lg"
-          value={credentials.password}
-          onChange={handleChange}
-        />
-        </label>
-        <p class="mb-0">Don't have an account? <a href="./signup" class="text-black-50 fw-bold">Sign Up</a></p>
-      <div class="text-center p-5">
-          <button type="submit" class="subscribe">LOGIN</button>
-        </div>
-    </form>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
-  )
-}
+      <div className="container py-5 h-100">
+        <div className="row d-flex justify-content-center align-items-center h-100">
+          <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div className="card shadow-2-strong">
+              <div className="card-body p-5 text-center"></div>
 
-export default Login
+
+              {notify? (
+                <p>Login Successful</p>
+              ) : null }
+
+              <form onSubmit={handleSubmit}>
+                <label>
+                  <h3 className="container mb-5" id="sign-in">
+                    LOGIN
+                  </h3>
+
+                  {error ? (
+                      <p>{error.errors}</p>
+                  ) : null}
+
+
+                  <p className="mb-4">Please fill in the details!</p>
+                  <div className="form-outline mb-4">
+                    Username:
+                    <input
+                      type="text"
+                      name="username"
+                      className="form-control form-control-lg"
+                      value={username}
+                      onChange={(e) =>
+                        setUserName(e.target.value)}
+                    />
+                  </div>
+                </label>
+                <label>
+                  Password:
+                  <input
+                    type="password"
+                    name="password"
+                    className="form-control form-control-lg"
+                    value={password}
+                    onChange={(e) => 
+                    setPassword(e.target.value)}
+                  />
+                </label>
+                <p class="mb-0">
+                  Don't have an account?{" "}
+                  <NavLink to="/sign-up" class="text-black-50 fw-bold">
+                    Sign Up
+                  </NavLink>
+                </p>
+                <div class="text-center p-5">
+                  <button type="submit" class="subscribe">
+                    LOGIN
+                  </button>
+                </div>
+              </form>
+              
+
+              {/* <NavLink to="/signup">Signup Here</NavLink>  */}
+
+
+
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
