@@ -15,7 +15,7 @@ const Login = () => {
   // });
   function notifyUser(){
     setNotify((notify) => !notify);
-  setTimeout(endNotification, 10000)
+  setTimeout(endNotification, 1000)
   }
 
   // function handleChange(e){
