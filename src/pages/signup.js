@@ -36,7 +36,7 @@ export default function ContactPage() {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    const res = await fetch("/landlords", {
+    fetch("/landlords", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
