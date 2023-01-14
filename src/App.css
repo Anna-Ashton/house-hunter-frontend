@@ -315,6 +315,10 @@ h5 {
   cursor: pointer;
 }
 
+.scribe{
+
+}
+
 
 .subscribe{
   width: 150px;
@@ -348,16 +352,17 @@ h5 {
   /* ///ownwer  styles*/
   .house-card {
     display: flex;
-    flex-direction:row;
-    align-items: center;
+    flex-direction:row; 
+     align-items: center;
     padding: 1rem;
-    margin: 1rem;
+    margin: 1rem; 
     border: 1px solid gray;
     border-radius: 0px;
   }
   
   .house-card img {
     width: 15%;
+    align-items:left;
   }
   
   .house-card button {
@@ -373,7 +378,7 @@ h5 {
 
   .form{
     padding-top: 30px;
-    padding-left: 130px;
+    padding-left: 10px;
     display: table;
     align-items: center;
   }
@@ -381,5 +386,12 @@ h5 {
   .label{
     padding: 10px;
   }
-  
 
+
+
+
+
+  .cc{
+    padding-left: 130px;
+  }
+  
