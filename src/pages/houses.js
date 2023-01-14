@@ -11,21 +11,28 @@ function HouseFinder() {
     estateName: '',
   });
 
-  useEffect(() => {
-    fetchHouses();
-  }, []);
+  useEffect( () => {
+    const fetchHouses = async () => {
+      const { data:res } = await axios.get("/houses")
+      setHouses(res)
+    }
+    fetchHouses()
+  }, [])
+  // useEffect(() => {
+  //   fetchHouses();
+  // }, []);
 
-  // Fetch houses from API iko hapa
-  function fetchHouses() {
-    axios
-      .post('./houses', { params: filters })
-      .then(response => {
-        setHouses(response.data);
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  }
+  // // Fetch houses from API iko hapa
+  // function fetchHouses() {
+  //   axios
+  //     .post('./houses', { params: filters })
+  //     .then(response => {
+  //       setHouses(response.data);
+  //     })
+  //     .catch(err => {
+  //       console.error(err);
+  //     });
+  // }
 
   // Handle filter changes
   function handleFilterChange(e) {
@@ -57,7 +64,7 @@ function HouseFinder() {
   // handle submit 
   function handleSubmit(e){
     e.preventDefault();
-    fetchHouses();
+    // fetchHouses();
   }
 
   // Handle booking a visit for a house
