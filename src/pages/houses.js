@@ -15,11 +15,10 @@ function HouseFinder() {
     fetchHouses();
   }, []);
 
-  // the fetching ikue hapa
-
+  // Fetch houses from API iko hapa
   function fetchHouses() {
     axios
-      .get('API inaenda hapa', { params: filters })
+      .post('./houses', { params: filters })
       .then(response => {
         setHouses(response.data);
       })
@@ -64,7 +63,7 @@ function HouseFinder() {
   // Handle booking a visit for a house
   function handleBookVisit(id) {
     axios
-      .post(`${id}`)
+      .post(`https://your-rails-api.com/houses/${id}/book_visit`)
       .then(response => {
         console.log(response.data);
       })
@@ -136,5 +135,4 @@ function HouseFinder() {
 }
 
 export default HouseFinder;
-
 
