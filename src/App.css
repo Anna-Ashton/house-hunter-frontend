@@ -252,6 +252,27 @@ header {
     }
 }
 
+/* Owners css */
+.form {
+  background-image: url("/src/images/alejandra-cifre-gonzalez-ylyn5r4vxcA-unsplash.jpg");
+  display: flex;
+  flex-flow: column;
+  align-items: left;
+  max-width: 1120px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.label {
+  background-color:lavender;
+}
+
+.h1 {
+  align-items: center;
+}
+
+/* Houses css */
+
 .houses__container {
   display: flex;
   flex-flow: column;
