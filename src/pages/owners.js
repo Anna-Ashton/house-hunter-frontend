@@ -1,38 +1,21 @@
-import React, { useEffect,useState } from 'react';
+
+
+import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useNavigate } from 'react-router-dom';
 
 const HouseForm = () => {
-  const navigate = useNavigate();
   const [houses, setHouses] = useState([]);
-  const [error, setError] = useState([]);
   const [inputs, setInputs] = useState({
-    estate_name: '',
-    img_url: '',
+    image: '',
     location: '',
     price: '',
     description: '',
-    house_type: '',
-    bedrooms: '',
+    type: '',
+    bedrooms: ''
   });
   const [editing, setEditing] = useState(false);
   const [editingIndex, setEditingIndex] = useState(null);
-
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    // auto-login
-    fetch("/me").then((r) => {
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
-    });
-  }, []);
-
-  if (!user)
-  navigate("/login");
-
 
   const handleChange = event => {
     event.persist();
@@ -48,53 +31,15 @@ const HouseForm = () => {
   const handleCreate = event => {
     event.preventDefault();
     setHouses([...houses, inputs]);
-   setInputs({
-     estate_name: '',
-     img_url: '',
-     location: '',
-     price: '',
-     description: '',
-     house_type: '',
-     bedrooms: '',
-   });
-   setEditing(false);
-
-    setError(null)
-     fetch("/houses", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-         Accept: "application/json",
-         Authorization: localStorage.token
-
-      },
-      body: JSON.stringify ({
-        id: inputs.id,
-        estate_name: inputs.estate_name,
-        img_url: inputs.img_url,
-        location: inputs.location,
-        price: inputs.price,
-        description: inputs.description,
-        house_type: inputs.house_type,
-        bedrooms: inputs.bedrooms
-      })
-    })
-
-    .then((res)=> {
-        if (res.ok) {
-          res.json().then((data) =>{
-            localStorage.setItem("token", data.jwt);
-            localStorage.setItem("user", `${data.user.id}`); 
-            setInputs([...inputs, data])
-          })
-        } else {
-          res.json().then((error) => setError(error));
-        }
-    //   res.json())
-    // .then((data)=>{
-    //   setInputs([...inputs, data])
-    // })
-  })
+    setInputs({
+      image: '',
+      location: '',
+      price: '',
+      description: '',
+      type: '',
+      bedrooms: ''
+    });
+    setEditing(false);
   }
 
   const handleUpdate = (event) => {
@@ -104,13 +49,12 @@ const HouseForm = () => {
     setHouses(newHouses);
     setEditing(false);
     setInputs({
-      estate_name: '',
-      img_url: '',
+      image: '',
       location: '',
       price: '',
       description: '',
-      house_type: '',
-      bedrooms: '',
+      type: '',
+      bedrooms: ''
     });
   }
 
@@ -129,17 +73,12 @@ const HouseForm = () => {
 
   return (
      <div>
-
     
       {editing ? (
         <form onSubmit={handleUpdate}>
           <label className='label'>
-            Estate Name:
-            <input  className="form-control form-control-lg" type="text" name="estate_name" value={inputs.estate_name} onChange={handleChange} />
-          </label>
-          <label className='label'>
             Image:
-            <input  className="form-control form-control-lg" type="text" name="img_url" value={inputs.img_url} onChange={handleChange} />
+            <input  className="form-control form-control-lg" type="text" name="image" value={inputs.image} onChange={handleChange} />
           </label>
           <label className='label'>
             Location:
@@ -154,8 +93,8 @@ Description:
 <input  className="form-control form-control-lg" type="text" name="description" value={inputs.description} onChange={handleChange} />
 </label>
 <label className='label'>
-House Type:
-<input  className="form-control form-control-lg" type="text" name="house_type" value={inputs.house_type} onChange={handleChange} />
+Type:
+<input  className="form-control form-control-lg" type="text" name="type" value={inputs.type} onChange={handleChange} />
 </label>
 <label className='label'>
 Bedrooms:
@@ -170,11 +109,10 @@ Bedrooms:
 </form>
 
 ) : (
-  
 <form className='form'   onSubmit={handleCreate}>
 <label className='label'>
 Image:
-<input   className="form-control form-control-lg"type="text" name="img_url" value={inputs.img_url} onChange={handleChange} />
+<input   className="form-control form-control-lg"type="text" name="image" value={inputs.image} onChange={handleChange} />
 </label>
 <label className='label'>
 Location:
@@ -190,13 +128,12 @@ Description:
 </label>
 <label className='label'>
 Type:
-<input  className="form-control form-control-lg" type="text" name="house_type" value={inputs.house_type} onChange={handleChange} />
+<input  className="form-control form-control-lg" type="text" name="type" value={inputs.type} onChange={handleChange} />
 </label>
 <label className='label'>
 Bedrooms:
 <input className="form-control form-control-lg" type="number" name="bedrooms" value={inputs.bedrooms} onChange={handleChange} />
 </label>
-</div>
 <div class="text-center p-4">
           <button type="submit" class="subscribe">UPLOAD</button>
         </div>
@@ -208,10 +145,8 @@ Bedrooms:
 {houses.map((house, index) => (
   <li className="house-card" key={index}>
     <Col>
-    
-<img src={house.img_url} alt={house.location} /><tr></tr>
-<h6>ESTATE NAME</h6>  <h4>{house.estate_name}</h4>
- <h6>LOCATION</h6> <h4>{house.location}</h4> <h6>PRICE</h6>  <h4>{house.price}</h4> <h6>DESCRIPTION</h6><h4>{house.description}</h4> <h6>HOUSE TYPE</h6><h4>{house.house_type}</h4><tr></tr><h6>BEDROOMS</h6> <h4>{house.bedrooms}</h4><tr></tr>
+<img src={house.image} alt={house.location} /><tr></tr>
+ <h6>LOCATION</h6> <h4>{house.location}</h4> <h6>PRICE</h6>  <h4>{house.price}</h4> <h6>Description</h6><h4>{house.description}</h4> <h6>TYPE</h6><h4>{house.type}</h4><tr></tr><h6>BEEDROOMS</h6> <h4>{house.bedrooms}</h4><tr></tr>
 <button class="subscribe2" type="button" onClick={() => startEditing(index)}>Edit</button><tr></tr>
 <button  class="subscribe2"type="button" onClick={() => handleDelete(index)}>Delete</button>
 </Col>
