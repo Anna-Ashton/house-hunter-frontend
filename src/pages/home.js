@@ -3,19 +3,19 @@ import { CDBFooter } from 'cdbreact';
   
 const Home = () => {
 
-  const text=" RELAX.... WE HUNTED A HOME FOR YOU! "; 
+//   const text=" RELAX.... WE HUNTED A HOME FOR YOU! "; 
 
-let index=0;
+// let index=0;
 
-function autowrite(){
-    document.querySelector('.underText').innerHTML=text.slice(0,index);
-    ++index;
+// function autowrite(){
+//     document.querySelector('.underText').innerHTML=text.slice(0,index);
+//     ++index;
 
-    if(index>text.length){
-        index=0;
-    }
-}
-setInterval(autowrite,100);
+//     if(index>text.length){
+//         index=0;
+//     }
+//}
+//setInterval(autowrite,100);
   return (
     
     <>
