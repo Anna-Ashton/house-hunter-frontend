@@ -70,41 +70,41 @@ const HouseForm = () => {
   }
 
   return (
-     <div>
+     <div className='landlord'>
     
       {editing ? (
         <form onSubmit={handleUpdate}>
-          <label className='label'>
-            Image:
-            <input  className="form-control form-control-lg" type="text" name="image" value={inputs.image} onChange={handleChange} />
-          </label>
-          <label className='label'>
-            Location:
-            <input  className="form-control form-control-lg"  type="text" name="location" value={inputs.location} onChange={handleChange} />
-          </label>
-          <label className='label'>
+            <label className='label'>
+              Image:
+              <input  className="form-control form-control-lg" type="text" name="image" value={inputs.image} onChange={handleChange} />
+            </label>
+            <label className='label'>
+              Location:
+              <input  className="form-control form-control-lg"  type="text" name="location" value={inputs.location} onChange={handleChange} />
+            </label>
+            <label className='label'>
             Price:
             <input  className="form-control form-control-lg" type="number" name="price" value={inputs.price} onChange={handleChange} />
             </label>
-<label className='label'>
-Description:
-<input  className="form-control form-control-lg" type="text" name="description" value={inputs.description} onChange={handleChange} />
-</label>
-<label className='label'>
-Type:
-<input  className="form-control form-control-lg" type="text" name="type" value={inputs.type} onChange={handleChange} />
-</label>
-<label className='label'>
-Bedrooms:
-<input  className="form-control form-control-lg" type="number" name="bedrooms" value={inputs.bedrooms} onChange={handleChange} />
-</label>
-<div class="text-center p-4" >
-<button class="subscribe" type="submit">Update</button>
-</div>
-<div class="text-center p-4" >
-<button  class="subscribe" type="button" onClick={() => setEditing(false)}>Cancel</button>
-</div>
-</form>
+            <label className='label'>
+            Description:
+            <input  className="form-control form-control-lg" type="text" name="description" value={inputs.description} onChange={handleChange} />
+            </label>
+            <label className='label'>
+            Type:
+            <input  className="form-control form-control-lg" type="text" name="type" value={inputs.type} onChange={handleChange} />
+            </label>
+            <label className='label'>
+            Bedrooms:
+            <input  className="form-control form-control-lg" type="number" name="bedrooms" value={inputs.bedrooms} onChange={handleChange} />
+            </label>
+            <div class="text-center p-4" >
+            <button class="subscribe" type="submit">Update</button>
+            </div>
+            <div class="text-center p-4" >
+            <button  class="subscribe" type="button" onClick={() => setEditing(false)}>Cancel</button>
+            </div>
+        </form>
 
 ) : (
 <form className='form'   onSubmit={handleCreate}>

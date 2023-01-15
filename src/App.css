@@ -281,8 +281,8 @@ header {
   margin: 0 auto;
 }
 
-h5 {
-  text-align: left;
+.house1 {
+  text-align: center;
 }
 
 .houses__wrapper {
@@ -332,7 +332,7 @@ h5 {
     width: 150px;
     height: 40px;
     align-items: right;
-     background-color:palevioletred;
+    background-color:palevioletred;
     color: #ffffff;
     font-family: "Fredoka One", Sans-serif;
       font-size: 16px;
@@ -344,7 +344,11 @@ h5 {
     }
 
 
-  /* ///ownwer  styles*/
+  /* ownwer  styles */
+  .landlord {
+    background-color: #412722;
+  }
+
   .house-card {
     display: flex;
     flex-direction:row;
