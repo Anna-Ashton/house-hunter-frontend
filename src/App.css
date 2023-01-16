@@ -90,6 +90,37 @@ h2 {
 
 .card{
     background-color: #25a6ff;
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    place-items: center;
+    padding: 2%;
+}
+
+.house-place {
+  background-color: #25a6ff;
+  display: flex;
+  width: 600px;
+}
+.house-place > img 
+{
+  width: 400px;
+  height: 300px;
+}
+
+.house-button {
+  background-color: rgb(165, 230, 14);
+  padding: 5px;
+  outline: none;
+  border: none;
+  border-radius: 7px;
+  font-size: 20px;
+}
+
+.house-button:hover {
+  background-color: rgb(171, 15, 192);
+  font-weight: 500px;
+  color: white;
+  
 }
 
 .row{
@@ -315,9 +346,6 @@ h5 {
   cursor: pointer;
 }
 
-.scribe{
-
-}
 
 
 .subscribe{
