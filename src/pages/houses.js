@@ -70,7 +70,7 @@ function HouseFinder() {
   // Handle booking a visit for a house
   function handleBookVisit(id) {
     axios
-      .post(`https://your-rails-api.com/houses/${id}/book_visit`)
+      .post(`/${id}/bookings`)
       .then(response => {
         console.log(response.data);
       })
