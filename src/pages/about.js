@@ -18,7 +18,7 @@ import React from 'react';
             <strong> Our goal! </strong> Putting a smile on your face and saving your time ."Your time is limited so dont waste it walking around looking for a house leave that to us"
         </div>
         <div class="about-img">
-        <img src="https://unsplash.com/photos/JvQ0Q5IkeMM" alt=""></img>
+        <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt=""></img>
         </div>
         
     </div>

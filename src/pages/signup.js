@@ -1,201 +1,202 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { FaMapMarkerAlt, FaPhone, FaMailBulk } from "react-icons/fa";
+import "../css/signup.css";
+import { useNavigate } from "react-router-dom";
 
-const SignUp = () => {
-
-  
-  // const [userInfo, setUserInfo] = useState({
-  //   username: '',
-  //   email: '',
-  //   password_digest: '',
-  //   // confirmPassword: ''
-  // });
-    const [email,setEmail] = useState("")
-const [password, setPassword] = useState("")
-const [fullName, setFullName] = useState("")
-const [ userName, setUserName] =useState ("")
-
-const url = "http://127.0.0.1:3000/sign"
-
-
-
-  // const handleChange = event => {
-  //   event.persist();
-  //   setUserInfo(userInfo => ({
-  //     ...userInfo,
-  //     [event.target.name]: event.target.value
-  //   }));
-  // }
-
-  const handleSubmit = event => {
-    event.preventDefault();
-
-      fetch(url, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json",
-  },
-  body: JSON.stringify({
-    email,
-    password,
-    full_name:fullName ,
-    username: userName,
-  }),
-})
-  .then((r) => r.json())
-  .then((data) => {
-    // save the token to localStorage for future access
-    localStorage.setItem("jwt", data.jwt);
-    // save the user somewhere (in state!) to log the user in
-    // setUser(data.user);
-
+export default function ContactPage() {
+  const navigate = useNavigate();
+  const [error, setError] = useState([]);
+  const [engage, setEngage] = useState({
+    full_name: "",
+    email: "",
+    comment: "",
+    username: "",
+    caretaker_name: "",
+    contacts: "",
+    password: "",
+    password_confirmation: "",
   });
-    console.log(email,password,fullName);
-    // Send a request to the server with the user's information
-    // If the information is valid, create a new account
-    // If the information is invalid, display an error message
+
+  const [notification, setNotification] = useState(false);
+
+  function handleNotification() {
+    setNotification((notification) => !notification);
+    setTimeout(endNotification, 1000);
+  }
+
+  function handleChange(e) {
+    e.preventDefault();
+    const { value, name } = e.currentTarget;
+
+    setEngage({
+      ...engage,
+      [name]: value,
+    });
+  }
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+    fetch("/landlords", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: engage.id,
+        full_name: engage.full_name,
+        email: engage.email,
+        username: engage.username,
+        caretaker_name: engage.caretaker_name,
+        contacts: engage.contacts,
+        password: engage.password,
+        password_confirmation: engage.password_confirmation,
+      }),
+    })
+      //   const data = await res.json()
+      //   setEngage([...engage, data])
+      // }
+      .then((res) => {
+        if (res.ok) {
+          res.json().then((user) => handleNotification());
+        } else {
+          res.json().then((error) => setError(error));
+        }
+      });
+  };
+
+  function endNotification() {
+    setNotification((notification) => !notification);
+    navigate("/login");
   }
 
   return (
-    <div className="vh-100">
-    <div className="container py-5 h-100">
-      <div className="row d-flex justify-content-center align-items-center h-100">
-        <div className="col-12 col-md-8 col-lg-6 col-xl-5">
-          <div className="card shadow-2-strong">
-            <div className="card-body p-5 text-center"></div>
-
-    <form onSubmit={handleSubmit}>
-    <h3 className="container mb-5" id="sign-in">SIGN UP</h3>
-              <p className="mb-4">Please fill in the details!</p>
-              <div className="form-outline mb-4">   
-      <label>
-        fullName:
-        <input
-          type="text"
-          name="fullname"
-          className="form-control form-control-lg"
-              value={fullName}
-          onChange={(e) => setFullName(e.target.value)}
-        />
-      </label>
-            <label>
-        Username:
-        <input
-          type="text"
-          name="username"
-          className="form-control form-control-lg"
-              value={userName}
-          onChange={(e) => setUserName(e.target.value)}
-        />
-      </label>
+    <div className="contact-page">
+      <div className="contact-heading">
+        <h2>Restricted for Admins only</h2>
       </div>
-      <label>
-        Email:
-        <input
-          type="email"
-          name="email"
-          className="form-control form-control-lg"
-              value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </label>
-      <label>
-        Password:
-        <input
-          type="password"
-          name="password"
-          className="form-control form-control-lg"
-              value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </label>
-      {/* <label>
-        Confirm Password:
-        <input
-          type="password"
-          name="confirmPassword"
-          className="form-control form-control-lg"
-          value={userInfo.confirmPassword}
-          onChange={handleChange}
-        />
-      </label> */}
-    </form>
-    <div class="text-center p-4">
-          <button type="submit" class="subscribe">SUBMIT</button>
+
+      <div className="contact-container">
+        <div className="contact-row">
+          <div className="contact-column">
+            <div className="contact-widget">
+              <div className="contact-widget-item">
+                <div className="contact-icon">
+                  <i className="FaLocationArrow">
+                    <FaMapMarkerAlt />
+                  </i>
+                </div>
+                <div className="contact-text">
+                  <h5>Address</h5>
+                  <p>Ngong Lane ..Nairobi Kenya</p>
+                </div>
+              </div>
+
+              <div className="contact-widget-item">
+                <div className="contact-icon">
+                  <i className="fa-phone">
+                    <FaPhone />
+                  </i>
+                </div>
+                <div className="contact-text">
+                  <h5>Phone</h5>
+                  <p>+254234234234</p>
+                </div>
+              </div>
+
+              <div className="contact-widget-item">
+                <div className="contact-icon">
+                  <i className="FaMailBulk">
+                    <FaMailBulk />
+                  </i>
+                </div>
+                <div className="contact-text">
+                  <h5>Mail Us</h5>
+                  <p>keja_hunters@gmail.com</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="contact-column">
+            <div className="contact-form">
+              {notification ? <p>signup successfull</p> : null}
+              <form onSubmit={handleClick}>
+                {error ? <p>{error.errors}</p> : null}
+                <input
+                  type="text"
+                  placeholder="fullname"
+                  name="full_name"
+                  value={engage.full_name}
+                  onChange={handleChange}
+                />
+                <input
+                  type="email"
+                  placeholder="Email"
+                  name="email"
+                  value={engage.email}
+                  onChange={handleChange}
+                />
+
+                <input
+                  type="text"
+                  placeholder="username"
+                  name="username"
+                  value={engage.username}
+                  onChange={handleChange}
+                />
+
+                <input
+                  type="text"
+                  placeholder="caretaker"
+                  name="caretaker_name"
+                  value={engage.caretaker_name}
+                  onChange={handleChange}
+                />
+
+                <input
+                  type="phone"
+                  placeholder="contact"
+                  name="contacts"
+                  value={engage.contacts}
+                  onChange={handleChange}
+                />
+
+                <input
+                  type="password"
+                  placeholder="password"
+                  name="password"
+                  value={engage.password}
+                  onChange={handleChange}
+                />
+
+                <input
+                  type="password"
+                  placeholder="password_confirmation"
+                  name="password_confirmation"
+                  value={engage.password_confirmation}
+                  onChange={handleChange}
+                />
+
+                <button className="contact-site-btn">Sign Up</button>
+              </form>
+            </div>
+          </div>
         </div>
-     
-    </div>
-    </div>
-    </div>
-    </div>
 
-    <footer>
-    <div className="row p-5 d-flex justify-content-center">
-      <div className="col-lg-2">
-
-     
-        <p>Need a home ? <tr></tr>Leave the hustle to us</p>
-        <img src="https://ld-wp73.template-help.com/woocommerce/prod_24608/v2/wp-content/uploads/2019/06/fb.svg" alt=""></img>
-        <img src="https://ld-wp73.template-help.com/woocommerce/prod_24608/v2/wp-content/uploads/2019/06/instagram.svg"
-          alt=""></img>
-        <img src="https://ld-wp73.template-help.com/woocommerce/prod_24608/v2/wp-content/uploads/2019/06/youtube.svg"
-          alt=""></img>
-        <img src="https://ld-wp73.template-help.com/woocommerce/prod_24608/v2/wp-content/uploads/2019/06/twitter.svg"
-          alt=""></img>
+        <div className="contact-row">
+          <div className="map-column">
+            <div className="contact-map">
+              <iframe
+                title="unique title"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.790618517481!2d36.78241265076555!3d-1.3004808360050335!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f1a6bf7445dc1%3A0x940b62a3c8efde4c!2sMoringa%20School!5e0!3m2!1sen!2ske!4v1672869696560!5m2!1sen!2ske"
+                allowfullscreen=" "
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
       </div>
-
-
-
-      
-
-      <div className="col-lg-2">
-        <p className="quicklinks">Quick Links</p>
-        <p>– About</p>
-        <p>– photos</p>
-        <p>– News</p>
-        <p>– Contacts</p>
-
-      </div>
-
-      <div className="col-lg-2">
-        <p className="quicklinks">Help</p>
-        <p>– FAQs</p>
-        <p>– Updates</p>
-        <p>– Complains</p>
-        <p>– Contacts</p>
-
-      </div>
-
-      <div className="col-lg-2">
-        <p className="quicklinks">Categories</p><tr></tr>
-        <p>– FAQs</p>
-        <p>– Rentals</p>
-        <p>– Apartments</p>
-        <p>– Contacts</p>
-
-      </div>
-
-      <div className="col-lg-2">
-        <p className="quicklinks">Contacts</p>
-        <p className="number">
-          <ion-icon name="call"></ion-icon>254-100-161
-        </p>
-        <p>
-          <ion-icon name="pin"></ion-icon>254 Souths Suited 21,<tr></tr>
-           NRB
-        </p>
-        <p className="number2">
-          <ion-icon name="mail"></ion-icon>Eaglehouse@info.co.ke
-        </p>
-
-
-      </div>
-       <h6>2022 @ Eaglehousehunter.com </h6>
     </div>
-    </footer>
-    </div>
-  )
+  );
 }
-
-
-export default SignUp

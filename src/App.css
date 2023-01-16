@@ -252,8 +252,58 @@ header {
     }
 }
 
-/* 
-EDIT */
+/* Owners css */
+.form {
+  background-image: url("/src/images/alejandra-cifre-gonzalez-ylyn5r4vxcA-unsplash.jpg");
+  display: flex;
+  flex-flow: column;
+  align-items: left;
+  max-width: 1120px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.label {
+  background-color:lavender;
+}
+
+.h1 {
+  align-items: center;
+}
+
+/* Houses css */
+
+.houses__container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  max-width: 1120px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+h5 {
+  text-align: left;
+}
+
+.houses__wrapper {
+  margin-bottom: 14px;
+  display: flex;
+  flex: 1;
+  margin: 0 1rem;
+  border-radius: 100px;
+  flex-flow: column;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.houses__list {
+  position: relative;
+  margin: 50px 0 45px;
+  margin-top: 20px;
+}
+
 
 .vh-100{
   background-size: contain;
@@ -263,6 +313,10 @@ EDIT */
 #login:hover{
   background-color: rgb(235, 112, 64);
   cursor: pointer;
+}
+
+.scribe{
+
 }
 
 
@@ -298,16 +352,17 @@ EDIT */
   /* ///ownwer  styles*/
   .house-card {
     display: flex;
-    flex-direction:row;
-    align-items: center;
+    flex-direction:row; 
+     align-items: center;
     padding: 1rem;
-    margin: 1rem;
+    margin: 1rem; 
     border: 1px solid gray;
     border-radius: 0px;
   }
   
   .house-card img {
     width: 15%;
+    align-items:left;
   }
   
   .house-card button {
@@ -323,12 +378,20 @@ EDIT */
 
   .form{
     padding-top: 30px;
-    padding-left: 130px;
+    padding-left: 10px;
     display: table;
     align-items: center;
   }
 
   .label{
     padding: 10px;
+  }
+
+
+
+
+
+  .cc{
+    padding-left: 130px;
   }
   
