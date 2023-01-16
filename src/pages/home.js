@@ -36,7 +36,7 @@ const Home = () => {
                       <strong>WE DONT FIND HOUSES ,WE FIND HOMES !</strong>
   
                   </h1>
-                  <p class="underText text-white display-">Life is short, buy a house</p>
+                  <p class="underText text-white display-">relax.... we hunted a home for you!</p>
                   </div>
             </div>
             

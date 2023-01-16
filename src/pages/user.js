@@ -24,35 +24,7 @@ function User() {
     });
    }
 
-  function handleChange(e) {
-    e.preventDefault();
-    const { value, name } = e.currentTarget;
-
-    setBooking({
-      ...booking,
-      [name]: value,
-    });
-  }
-
-  const handleBookSubmit = async (e) => {
-    e.preventDefault();
-    const res = await fetch("/bookings", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        booking_date: booking.booking_date,
-      }),
-    });
-   await res.json();
-    setBooking({
-      booking_date: "",
-    })
-   
-  };
-
-  const handleClientSubmit = async (e) => {
+   const handleClientSubmit = async (e) => {
     e.preventDefault();
     const resp = await fetch("/users", {
       method: "POST",
@@ -75,6 +47,37 @@ function User() {
       contact: "",
     });
   };
+
+  function handleChange(e) {
+    e.preventDefault();
+    const { value, name } = e.currentTarget;
+
+    setBooking({
+      ...booking,
+      [name]: value,
+    });
+  }
+
+  const handleBookSubmit = async (e) => {
+    e.preventDefault();
+    const res = await fetch("/bookings", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        id: booking.id,
+        booking_date: booking.booking_date,
+      }),
+    });
+   await res.json();
+    setBooking({
+      booking_date: "",
+    })
+   
+  };
+
+  
   return (
     <div>
       {/* <a href="https://front.codes/" class="logo" target="_blank">
@@ -147,7 +150,7 @@ function User() {
                             <div class="form-group mt-2">
                               <input
                                 type="text"
-                                name="logname"
+                                name="full_name"
                                 class="form-style"
                                 placeholder="Your Full Name"
                                 id="logname"
@@ -160,7 +163,7 @@ function User() {
                             <div class="form-group mt-2">
                               <input
                                 type="text"
-                                name="logname"
+                                name="username"
                                 class="form-style"
                                 placeholder="Your Username"
                                 id="logname"
@@ -173,7 +176,7 @@ function User() {
                             <div class="form-group mt-2">
                               <input
                                 type="email"
-                                name="logemail"
+                                name="email"
                                 class="form-style"
                                 placeholder="Your Email"
                                 id="logemail"
@@ -186,7 +189,7 @@ function User() {
                             <div class="form-group mt-2">
                               <input
                                 type="phone"
-                                name="logphone"
+                                name="contact"
                                 class="form-style"
                                 placeholder="Your Contact"
                                 id="logphone"
