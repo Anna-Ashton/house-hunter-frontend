@@ -92,6 +92,11 @@ const HouseForm = () => {
 Description:
 <input  className="form-control form-control-lg" type="text" name="description" value={inputs.description} onChange={handleChange} />
 </label>
+Owners
+Contact
+Login
+ABOUT US
+
 <label className='label'>
 Type:
 <input  className="form-control form-control-lg" type="text" name="type" value={inputs.type} onChange={handleChange} />
