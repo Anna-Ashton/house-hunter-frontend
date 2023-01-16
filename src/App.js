@@ -9,6 +9,7 @@ import SignUp from './pages/signup';
 import Owners from './pages/owners';
 import Contact from './pages/contact';
 import Login from './pages/login';
+import Logout from './pages/logout';
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
         <Route path='/login' element={<Login/>} /> 
         <Route path='/owners' element={<Owners/>} /> 
         <Route path='/contact' element={<Contact/>} /> 
+        <Route path='/logout' element={<Logout/>} /> 
+
       </Routes>
     </Router>
   );
