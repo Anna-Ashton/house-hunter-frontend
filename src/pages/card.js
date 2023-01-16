@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+
 
 function Card({ house, handleBookVisit }) {
   return (
@@ -10,7 +12,9 @@ function Card({ house, handleBookVisit }) {
         <p>{house.location}</p>
         <p>{house.bedrooms} Rooms</p>
         <p>Price: ${house.price}</p>
-        <button className="house-button" onClick={() => handleBookVisit(house.id)}>Book a visit</button>
+        <Link to="/user">
+  <button className="house-button" onClick={() => handleBookVisit(house.id)}>Book a visit</button>
+</Link>
       </div>
       </div>
     </div>
