@@ -6,6 +6,7 @@ import Col from 'react-bootstrap/Col';
 const HouseForm = () => {
 const [houses, setHouses] = useState([]);
 const [inputs, setInputs] = useState({
+estate_name: '',  
 img_url: '',
 location: '',
 price: '',
@@ -31,13 +32,30 @@ setInputs(inputs => ({ ...inputs, [event.target.name]: event.target.value }));
   
 const handleCreate = event => {
 event.preventDefault();
+fetch("/houses", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    estate_name: inputs.estate_name,
+    img_url: inputs.img_url,
+    price: inputs.price,
+    location: inputs.location,
+    description: inputs.description,
+    house_type: inputs.house_type,
+    bedrooms: inputs.bedrooms,
+  })
+})
+
 setHouses([...houses, inputs]);
 setInputs({
-image: '',
+estate_name: '',
+img_url: '',
 location: '',
 price: '',
 description: '',
-type: '',
+house_type: '',
 bedrooms: ''
 });
 setEditing(false);
@@ -51,11 +69,12 @@ newHouses[editingIndex] = inputs;
 setHouses(newHouses);
 setEditing(false);
 setInputs({
-image: '',
+estate_name: '',
+img_url: '',
 location: '',
 price: '',
 description: '',
-type: '',
+house_type: '',
 bedrooms: ''
 });
 };
@@ -83,7 +102,7 @@ return (
 <form onSubmit={handleUpdate}>
 <label className='label'>
 Image:
-<input  className="form-control form-control-lg" type="text" name="image" value={inputs.image} onChange={handleChange} />
+<input  className="form-control form-control-lg" type="text" name="img_url" value={inputs.img_url} onChange={handleChange} />
 </label>
 
 
@@ -102,7 +121,7 @@ Location:
             </label>
             <label className='label'>
           Type:
-          <input  className="form-control form-control-lg" type="text" name="type" value={inputs.type} onChange={handleChange} />
+          <input  className="form-control form-control-lg" type="text" name="house_type" value={inputs.house_type} onChange={handleChange} />
         </label>
         <label className='label'>
           Bedrooms:
@@ -125,6 +144,10 @@ Location:
 <label className='label'>
 Image:
 <input   className="form-control form-control-lg"type="text" name="img_url" value={inputs.img_url} onChange={handleChange} />
+</label>
+<label className='label'>
+Estate Name:
+<input   className="form-control form-control-lg"type="text" name="estate_name" value={inputs.estate_name} onChange={handleChange} />
 </label>
 <label className='label'>
 Location:
@@ -156,8 +179,9 @@ Bedrooms:
 {houses.map((house, index) => (
   <li className="house-card" key={index}>
     <Col>
-<img src={house.image} alt={house.location} /><tr></tr>
- <h6>LOCATION</h6> <h4>{house.location}</h4> <h6>PRICE</h6>  <h4>{house.price}</h4> <h6>Description</h6><h4>{house.description}</h4> <h6>TYPE</h6><h4>{house.type}</h4><tr></tr><h6>BEEDROOMS</h6> <h4>{house.bedrooms}</h4><tr></tr>
+<img src={house.img_url} alt="houses" /><tr></tr>
+<h6>ESTATE NAME</h6> <h4>{house.estate_name}</h4>
+ <h6>LOCATION</h6> <h4>{house.location}</h4> <h6>PRICE</h6>  <h4>{house.price}</h4> <h6>Description</h6><h4>{house.description}</h4> <h6>TYPE</h6><h4>{house.house_type}</h4><tr></tr><h6>BEDROOMS</h6> <h4>{house.bedrooms}</h4><tr></tr>
 <button class="subscribe2" type="button" onClick={() => startEditing(index)}>Edit</button><tr></tr>
 <button  class="subscribe2"type="button" onClick={() => handleDelete(index)}>Delete</button>
 </Col>
