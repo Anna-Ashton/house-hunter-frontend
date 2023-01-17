@@ -87,7 +87,10 @@ h2 {
  h1{
     text-align: center;
 } 
-
+/* .house-card{
+  display: flex;
+  flex-direction: column;
+} */
 .card{
     background-color: #25a6ff;
     display: grid;
