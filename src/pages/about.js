@@ -5,8 +5,8 @@ import React from 'react';
     <div
      style={{
         // display: 'flex',
-         //justifyifyContent: 'center',
-         alignItems: 'center',
+        //  justifyifyContent: 'center',
+        //  alignItems: 'center',
         // height: '10vh',
       }} >
         <section id='about-us' className='about-us'>
@@ -18,7 +18,7 @@ import React from 'react';
             <strong> Our goal! </strong> Putting a smile on your face and saving your time ."Your time is limited so dont waste it walking around looking for a house leave that to us"
         </div>
         <div class="about-img">
-          <img src="src/images/dillon-kydd-2keCPb73aQY-unsplash.jpg" alt="My  img"></img>
+        <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt=""></img>
         </div>
         
     </div>

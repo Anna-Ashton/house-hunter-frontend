@@ -1,49 +1,142 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.css';
-import {
-  MDBBtn,
-  MDBContainer,
-  MDBRow,
-  MDBCol,
-  MDBCard,
-  MDBCardBody,
-  MDBInput,
-  
-}
-from 'mdb-react-ui-kit';
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
-function login() {
+const Login = () => {
+  const navigate = useNavigate();
+
+  const [error, setError] = useState(null);
+  const [notify, setNotify] = useState(false);
+  const [username, setUserName] = useState ("");
+  const [password, setPassword] = useState("")
+
+  // // const [credentials, setCredentials] = useState({
+  //   username: "",
+  //   password: "",
+  // });
+  function notifyUser(){
+    setNotify((notify) => !notify);
+  setTimeout(endNotification, 1000)
+  }
+
+  // function handleChange(e){
+  //   e.preventDefault();
+
+  //   const { value, name } = e.currentTarget;
+
+  //   setCredentials({
+  //     ...credentials,
+  //     [name]: value,
+  //   });
+  // }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(credentials);
+    setError(null)
+    fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+        Accept: "application/json",
+        Authorization: localStorage.token
+      },
+      body: JSON.stringify({username, password}),
+    })
+    .then((res) => {
+      if(res.ok) {
+        res.json().then((user) => {
+          notifyUser();
+          localStorage.setItem("token", user.jwt);
+          localStorage.setItem("user", `${user.user.id}`);        
+        });
+      } else {
+        res.json().then((error) => setError(error));
+      }
+    })
+  };
+
+  
+
+
+  function endNotification() {
+    setNotify((notify) => !notify);
+    navigate("/owners")
+  }
   return (
-    <MDBContainer fluid>
-
-      <MDBRow className='d-flex justify-content-center align-items-center h-100'>
-        <MDBCol col='8'>
-
-          <MDBCard className='bg-white my-5 mx-auto' style={{borderRadius: '1rem', maxWidth: '500px'}}>
-            <MDBCardBody className='p-5 w-100 d-flex flex-column'>
-
-              <h2 className="fw-bold mb-2 text-center">LOG IN</h2>
-              <p className="text-white-50 mb-3">Please enter your login and password!</p>
-
-              <MDBInput wrapperClass='mb-4 w-100' label='Username' id='formControlLg' type='username' size="lg"/>
-              <MDBInput wrapperClass='mb-4 w-100' label='Password' id='formControlLg' type='password' size="lg"/>
+    <div className="vh-100">
+      <div className="container py-5 h-100">
+        <div className="row d-flex justify-content-center align-items-center h-100">
+          <div className="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div className="card shadow-2-strong">
+              <div className="card-body p-5 text-center"></div>
 
 
-              <MDBBtn size='small'>
-                Login
-              </MDBBtn>
+              {notify? (
+                <p>Login Successful</p>
+              ) : null }
 
-              <hr className="my-4" />
-            </MDBCardBody>
-          </MDBCard>
+              <form onSubmit={handleSubmit}>
+                <label>
+                  <h3 className="container mb-5" id="sign-in">
+                    LOGIN
+                  </h3>
 
-        </MDBCol>
-      </MDBRow>
+                  {error ? (
+                      <p>{error.errors}</p>
+                  ) : null}
 
-    </MDBContainer>
+
+                  <p className="mb-4">Please fill in the details!</p>
+                  <div className="form-outline mb-4">
+                    Username:
+                    <input
+                      type="text"
+                      name="username"
+                      className="form-control form-control-lg"
+                      value={username}
+                      onChange={(e) =>
+                        setUserName(e.target.value)}
+                    />
+                  </div>
+                </label>
+                <label>
+                  Password:
+                  <input
+                    type="password"
+                    name="password"
+                    className="form-control form-control-lg"
+                    value={password}
+                    onChange={(e) => 
+                    setPassword(e.target.value)}
+                  />
+                </label>
+                <p class="mb-0">
+                  Don't have an account?{" "}
+                  <NavLink to="/sign-up" class="text-black-50 fw-bold">
+                    Sign Up
+                  </NavLink>
+                </p>
+                <div class="text-center p-5">
+                  <button type="submit" class="subscribe">
+                    LOGIN
+                  </button>
+                </div>
+              </form>
+              
+
+              {/* <NavLink to="/signup">Signup Here</NavLink>  */}
+
+
+
+
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
-}
-  
+};
 
-
-export default login
+export default Login;

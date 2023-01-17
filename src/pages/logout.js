@@ -1,13 +1,19 @@
 import React from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+
+
 
 const Logout = ({user, setUser}) => {
-     
+
+ const navigate = useNavigate () 
+
      
 
     function handleLogoutClick() {
         fetch("/logout", { method: "DELETE" }).then((r) => {
           if (r.ok) {
             setUser(null);
+            navigate("/")
           }
         });
     }
@@ -49,15 +55,13 @@ const Logout = ({user, setUser}) => {
    //  </div>
   )
 }
-
-
-
-
-
-
-
-
-
-
-
 export default Logout;
+
+
+
+
+
+
+
+
+
