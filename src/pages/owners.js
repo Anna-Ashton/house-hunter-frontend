@@ -27,44 +27,7 @@ setInputs(inputs => ({ ...inputs, [event.target.name]: event.target.value }));
 }
 };
 
-  const handleCreate = event => {
-    event.preventDefault();
-    //  const res =  fetch("/houses", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     id: inputs.id,
-    //     img_url: inputs.img_url,
-    //     location: inputs.location,
-    //     price: inputs.price,
-    //     house_type: inputs.house_type,
-    //     bedrooms: inputs.bedrooms,
-
-    //   })
-    // })
-    //  res.json();
-    // setInputs({
-    //   img_url: "",
-    //   location: "",
-    //   price: "",
-    //   house_type: "",
-    //   bedrooms: "",
-
-    // })
-    
-    setHouses([...houses, inputs]);
-    setInputs({
-      image: '',
-      location: '',
-      price: '',
-      description: '',
-      type: '',
-      bedrooms: ''
-    });
-    setEditing(false);
-  }
+  
   
 const handleCreate = event => {
 event.preventDefault();
