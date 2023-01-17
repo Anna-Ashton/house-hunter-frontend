@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaMapMarkerAlt, FaPhone, FaMailBulk } from "react-icons/fa";
+// import { FaMapMarkerAlt, FaPhone, FaMailBulk } from "react-icons/fa";
 import "../css/signup.css";
 import { useNavigate } from "react-router-dom";
 
@@ -80,19 +80,19 @@ export default function ContactPage() {
           <div className="contact-column">
             <div className="contact-widget">
               <div className="contact-widget-item">
-                <div className="contact-icon">
+                {/* <div className="contact-icon">
                   <i className="FaLocationArrow">
                     <FaMapMarkerAlt />
                   </i>
-                </div>
-                <div className="contact-text">
+                </div> */}
+                {/* <div className="contact-text">
                   <h5>Address</h5>
                   <p>Ngong Lane ..Nairobi Kenya</p>
-                </div>
+                </div> */}
               </div>
 
               <div className="contact-widget-item">
-                <div className="contact-icon">
+                {/* <div className="contact-icon">
                   <i className="fa-phone">
                     <FaPhone />
                   </i>
@@ -100,10 +100,10 @@ export default function ContactPage() {
                 <div className="contact-text">
                   <h5>Phone</h5>
                   <p>+254234234234</p>
-                </div>
+                </div> */}
               </div>
 
-              <div className="contact-widget-item">
+              {/* <div className="contact-widget-item">
                 <div className="contact-icon">
                   <i className="FaMailBulk">
                     <FaMailBulk />
@@ -113,22 +113,26 @@ export default function ContactPage() {
                   <h5>Mail Us</h5>
                   <p>keja_hunters@gmail.com</p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
           <div className="contact-column">
-            <div className="contact-form">
+            <div className="main">
+              <h1>Sign Up Form</h1>
               {notification ? <p>signup successfull</p> : null}
               <form onSubmit={handleClick}>
                 {error ? <p>{error.errors}</p> : null}
+                <div class="field">
                 <input
                   type="text"
                   placeholder="fullname"
                   name="full_name"
                   value={engage.full_name}
                   onChange={handleChange}
+                  x-webkit-speech
                 />
+                </div>
                 <input
                   type="email"
                   placeholder="Email"
