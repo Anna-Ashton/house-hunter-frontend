@@ -1,19 +1,18 @@
-
-
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const HouseForm = () => {
-  const [houses, setHouses] = useState([]);
-  const [inputs, setInputs] = useState({
-    image: '',
-    location: '',
-    price: '',
-    description: '',
-    type: '',
-    bedrooms: ''
-  });
+// const { authState, authMethods } = useContext(authContext);
+const [houses, setHouses] = useState([]);
+const [inputs, setInputs] = useState({
+image: '',
+location: '',
+price: '',
+description: '',
+type: '',
+bedrooms: ''
+})
   const [editing, setEditing] = useState(false);
   const [editingIndex, setEditingIndex] = useState(null);
 
@@ -92,6 +91,11 @@ const HouseForm = () => {
 Description:
 <input  className="form-control form-control-lg" type="text" name="description" value={inputs.description} onChange={handleChange} />
 </label>
+Owners
+Contact
+Login
+ABOUT US
+
 <label className='label'>
 Type:
 <input  className="form-control form-control-lg" type="text" name="type" value={inputs.type} onChange={handleChange} />
