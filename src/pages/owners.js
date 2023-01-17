@@ -6,11 +6,11 @@ import Col from 'react-bootstrap/Col';
 const HouseForm = () => {
 const [houses, setHouses] = useState([]);
 const [inputs, setInputs] = useState({
-image: '',
+img_url: '',
 location: '',
 price: '',
 description: '',
-type: '',
+house_type: '',
 bedrooms: ''
 });
 const [editing, setEditing] = useState(false);
@@ -27,6 +27,45 @@ setInputs(inputs => ({ ...inputs, [event.target.name]: event.target.value }));
 }
 };
 
+  const handleCreate = event => {
+    event.preventDefault();
+    //  const res =  fetch("/houses", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     id: inputs.id,
+    //     img_url: inputs.img_url,
+    //     location: inputs.location,
+    //     price: inputs.price,
+    //     house_type: inputs.house_type,
+    //     bedrooms: inputs.bedrooms,
+
+    //   })
+    // })
+    //  res.json();
+    // setInputs({
+    //   img_url: "",
+    //   location: "",
+    //   price: "",
+    //   house_type: "",
+    //   bedrooms: "",
+
+    // })
+    
+    setHouses([...houses, inputs]);
+    setInputs({
+      image: '',
+      location: '',
+      price: '',
+      description: '',
+      type: '',
+      bedrooms: ''
+    });
+    setEditing(false);
+  }
+  
 const handleCreate = event => {
 event.preventDefault();
 setHouses([...houses, inputs]);
@@ -40,6 +79,7 @@ bedrooms: ''
 });
 setEditing(false);
 };
+
 
 const handleUpdate = (event) => {
 event.preventDefault();
@@ -82,6 +122,9 @@ return (
 Image:
 <input  className="form-control form-control-lg" type="text" name="image" value={inputs.image} onChange={handleChange} />
 </label>
+
+
+
 <label className='label'>
 Location:
 <input  className="form-control form-control-lg"  type="text" name="location" value={inputs.location} onChange={handleChange} />
@@ -118,7 +161,7 @@ Location:
   <form className='form'   onSubmit={handleCreate}>
 <label className='label'>
 Image:
-<input   className="form-control form-control-lg"type="text" name="image" value={inputs.image} onChange={handleChange} />
+<input   className="form-control form-control-lg"type="text" name="img_url" value={inputs.img_url} onChange={handleChange} />
 </label>
 <label className='label'>
 Location:
@@ -134,7 +177,7 @@ Description:
 </label>
 <label className='label'>
 Type:
-<input  className="form-control form-control-lg" type="text" name="type" value={inputs.type} onChange={handleChange} />
+<input  className="form-control form-control-lg" type="text" name="house_type" value={inputs.house_type} onChange={handleChange} />
 </label>
 <label className='label'>
 Bedrooms:
