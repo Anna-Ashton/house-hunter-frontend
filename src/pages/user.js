@@ -134,7 +134,7 @@ function User() {
                                 placeholder="Preferred viewing day"
                                 id="logdate"
                                 value={booking.booking_date}
-                                onChange={(e) => setDate(e.target.value)}
+                                onChange={handleChange}
                                 autocomplete="off"
                               />
                               {/* <i class="input-icon uil uil-at"></i> */}
