@@ -88,6 +88,8 @@ function HouseFinder() {
           placeholder="Location"
           value={filters.location}
           onChange={handleFilterChange}
+        readonly={false}
+
         />
         <div>
           <label>Price:</label>
@@ -97,6 +99,8 @@ function HouseFinder() {
             placeholder="Min Price"
             value={filters.price.min}
             onChange={handleFilterChange}
+          readonly={false}
+
           />
           <input
             type="number"
@@ -104,6 +108,8 @@ function HouseFinder() {
             placeholder="Max Price"
             value={filters.price.max}
             onChange={handleFilterChange}
+          readonly={false}
+
           />
         </div>
         <div>
@@ -114,6 +120,10 @@ function HouseFinder() {
             placeholder="Min Rooms"
             value={filters.numRooms.min}
             onChange={handleFilterChange}
+            min="1"
+            max="10"
+          readonly={false}
+
           />
           <input
             type="number"
@@ -121,6 +131,8 @@ function HouseFinder() {
             placeholder="Max Rooms"
             value={filters.numRooms.max}
             onChange={handleFilterChange}
+          readonly={false}
+
           />
         </div>
         <input
@@ -129,6 +141,8 @@ function HouseFinder() {
           placeholder="Estate Name"
           value={filters.estateName}
           onChange={handleFilterChange}
+        readonly={false}
+
         />
         <button type="submit">Filter</button>
       </form>
