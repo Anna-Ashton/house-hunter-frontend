@@ -340,7 +340,7 @@ h5 {
 
 
 .vh-100{
-  background-size: contain;
+  background-size:100% 100%;
   background-image: url(./images/alejandra-cifre-gonzalez-ylyn5r4vxcA-unsplash.jpg);
 }
 
