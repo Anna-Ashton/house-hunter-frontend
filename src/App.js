@@ -9,6 +9,9 @@ import SignUp from "./pages/signup";
 import Owners from "./pages/owners";
 import  Review from "./pages/reviews";
 import Login from "./pages/login";
+import User from "./pages/user"
+
+
 
 function App() {
   //const { token } = localStorage.getItem('jwt');
@@ -20,15 +23,17 @@ function App() {
   return (
     <Router>
       <Navbar />
-
       <Routes>
+
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/houses" element={<Houses />} />
-        <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/user" element={<User />} />
+        <Route path="/sign-up" element={<SignUp />} /> 
         <Route path="/login" element={<Login />} />
-        <Route path="/owners" element={<Owners />} />
+        <Route path="/owners" element={ <Owners />} />
         <Route path="/reviews" element={<Review />} />
+
       </Routes>
     </Router>
   );
