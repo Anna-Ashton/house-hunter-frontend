@@ -11,6 +11,8 @@ import  Review from "./pages/reviews";
 import Login from "./pages/login";
 import User from "./pages/user"
 
+
+
 function App() {
   //const { token } = localStorage.getItem('jwt');
   let token = localStorage.getItem("token");
@@ -22,6 +24,7 @@ function App() {
     <Router>
       <Navbar />
       <Routes>
+
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/houses" element={<Houses />} />
@@ -30,6 +33,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/owners" element={ <Owners />} />
         <Route path="/reviews" element={<Review />} />
+
       </Routes>
     </Router>
   );

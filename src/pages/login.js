@@ -69,11 +69,11 @@ const Login = () => {
   }
   return (
     <div className="vh-100">
-      <div className="container py-5 h-100">
-        <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col-12 col-md-8 col-lg-6 col-xl-5">
-            <div className="card shadow-2-strong">
-              <div className="card-body p-5 text-center"></div>
+      <div className="container py-3 h-95">
+        <div className="row d-flex justify-content-center align-items-center h-90">
+          <div className="col-10 col-md-6 col-lg-4 col-xl-5">
+            <div className="card shadow-5-strong">
+              <div className="card-body p-3 text-center"></div>
 
 
               {notify? (
@@ -82,7 +82,7 @@ const Login = () => {
 
               <form onSubmit={handleSubmit}>
                 <label>
-                  <h3 className="container mb-5" id="sign-in">
+                  <h3 className="container mb-3" id="sign-in">
                     LOGIN
                   </h3>
 
