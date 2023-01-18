@@ -82,20 +82,19 @@ function User() {
    
   };
 
+
       const [name, setName] = useState('');
       const [email, setEmail] = useState('');
       const [contact, setContact] = useState('');
-      const [date, setDate] = useState('');
-  
+       const [date, setDate] = useState('');
+
   
       const handleSubmit = (event) => {
           event.preventDefault();
           alert(`Hello ${name}.... For updates and any issues we will be reaching you through your email@   ${email}   or through your phone number ${contact} .go ahead and book the day you will visit your potential newhome`);
       };
-  
- 
-
-
+      
+      
   
   return (
     <div>
@@ -133,6 +132,8 @@ function User() {
                                 class="form-style"
                                 placeholder="Preferred viewing day"
                                 id="logdate"
+                                 onChange={(e) => setDate(e.target.value)}
+
                                 value={booking.booking_date}
                                 onChange={handleChange}
                                 autocomplete="off"
@@ -157,6 +158,7 @@ function User() {
                             </a>
                           </p> */}
                           </form>
+        
                         </div>
                       </div>
                     </div>
@@ -218,8 +220,12 @@ function User() {
                               />
                               {/* <i class="input-icon uil uil-lock-alt"></i> */}
                             </div>
-                            <button class="btn mt-4" >submit</button>
+                            <button class="btn mt-4"  >submit</button>
                           </form>
+                          <div>
+        <div>
+        </div>
+    </div>
                         </div>
                       </div>
                     </div>
