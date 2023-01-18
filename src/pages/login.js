@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useCallback } from 'react';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -55,6 +56,10 @@ const Login = () => {
     })
   };
 
+  const handleLogout = useCallback(() => {
+    localStorage.removeItem('token');
+    // perform other logout logic here
+  }, []);
   
 
 
@@ -120,6 +125,10 @@ const Login = () => {
                   <button type="submit" class="subscribe">
                     LOGIN
                   </button>
+                   
+                </div>
+                <div class="text-center ">
+                <button  type="submit" className="subscribe" onClick={handleLogout}>LOGOUT</button>
                 </div>
               </form>
               
