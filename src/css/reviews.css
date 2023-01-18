@@ -5,8 +5,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 25px;
-    font-weight: 600;
+    font-size: 35px;
+    font-weight: 800;
 }
 
 .review_section h3 {
@@ -69,8 +69,12 @@ body.dark .review_center {
 
 .quote {
     color: rgb(86, 11, 206);
-    width: 20px;
+    width: 10px;
     height: auto;
+}
+
+.statement {
+    font-size: 17px;
 }
 
 .review_bottom {
@@ -85,8 +89,8 @@ body.dark .review_center {
 }
 
 #user {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
 }
 
 

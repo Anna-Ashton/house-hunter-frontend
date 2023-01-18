@@ -18,20 +18,21 @@ const Navbar = () => {
             <NavLink to='/about' activeStyle>
               About
             </NavLink>
-            <NavLink to='/sign-up' activeStyle>
-             Sign up
-            </NavLink>
+            
             <NavLink to='/houses' activeStyle>
               Houses
             </NavLink>
-            <NavLink to='/user' activeStyle>
+            {/* <NavLink to='/user' activeStyle>
               Book With Us
-            </NavLink>
-            <NavLink to='/owners' activeStyle>
-              Owners
-            </NavLink>
+            </NavLink> */}
             <NavLink to='/reviews' activeStyle>
               Reviews
+            </NavLink>
+            {/* <NavLink to='/sign-up' activeStyle>
+             Sign up
+            </NavLink> */}
+            <NavLink to='/sign-up' activeStyle>
+              Admin
             </NavLink>
           </NavMenu>
           <NavBtn>
