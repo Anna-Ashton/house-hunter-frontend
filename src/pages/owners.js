@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+// import { NavLink } from "react-router-dom";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -171,8 +172,12 @@ Bedrooms:
 </label>
 <div class="text-center p-4">
           <button type="submit" class="subscribe">UPLOAD</button>
+          {/* <NavLink className="dashboard-owners" to="/dashboard" >
+          See Dashboard
+        </NavLink> */}
         </div>
 </form>
+
 <h1 className='house1'>HOUSE LIST</h1>
    <Row>
 <ul>

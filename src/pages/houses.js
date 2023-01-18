@@ -81,7 +81,7 @@ function HouseFinder() {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="location"
@@ -145,7 +145,7 @@ function HouseFinder() {
 
         />
         <button type="submit">Filter</button>
-      </form>
+      </form> */}
       <div>
         {houses.map(house => (
           <Card key={house.id} house={house} handleBookVisit={handleBookVisit} />
