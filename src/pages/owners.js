@@ -5,6 +5,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const HouseForm = () => {
+
+
+
 const [houses, setHouses] = useState([]);
 const [inputs, setInputs] = useState({
 estate_name: '',  

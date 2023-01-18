@@ -94,9 +94,7 @@ function User() {
 
   return (
     <div>
-      {/* <a href="https://front.codes/" class="logo" target="_blank">
-		<img src="https://assets.codepen.io/1462889/fcy.png" alt=""/>
-	</a> */}
+     
 
       <div class="section">
         <div class="container">
@@ -134,23 +132,9 @@ function User() {
                               />
                               {/* <i class="input-icon uil uil-at"></i> */}
                             </div>
-                            {/* <div class="form-group mt-2">
-                            <input
-                              type="password"
-                              name="logpass"
-                              class="form-style"
-                              placeholder="Your Password"
-                              id="logpass"
-                              autocomplete="off"
-                            />
-                            <i class="input-icon uil uil-lock-alt"></i>
-                          </div> */}
+                           
                             <button class="btn mt-4">book</button>
-                            {/* <p class="mb-0 mt-4 text-center">
-                            <a href="#0" class="link">
-                              Forgot your password?
-                            </a>
-                          </p> */}
+                          
                             <p className="users-home">
                               <NavLink to="/" className="gobackhome">
                                 Welcome Again
@@ -177,7 +161,7 @@ function User() {
                                 onChange={(e) => setName(e.target.value)}
                                 autocomplete="off"
                               />
-                              {/* <i class="input-icon uil uil-user"></i> */}
+                            
                             </div>
                             <div class="form-group mt-2">
                               <input
@@ -190,7 +174,7 @@ function User() {
                                 onChange={handleUserChange}
                                 autocomplete="off"
                               />
-                              {/* <i class="input-icon uil uil-user"></i> */}
+                             
                             </div>
                             <div class="form-group mt-2">
                               <h1>
@@ -206,7 +190,7 @@ function User() {
                                   autocomplete="off"
                                 />{" "}
                               </h1>
-                              {/* <i class="input-icon uil uil-at"></i> */}
+                             
                             </div>
                             <div class="form-group mt-2">
                               <input
@@ -219,7 +203,7 @@ function User() {
                                 onChange={(e) => setContact(e.target.value)}
                                 autocomplete="off"
                               />
-                              {/* <i class="input-icon uil uil-lock-alt"></i> */}
+                             
                             </div>
                             <button class="btn mt-4">submit</button>
                           </form>
