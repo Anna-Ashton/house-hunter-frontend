@@ -18,7 +18,7 @@ import React from 'react';
             <strong> Our goal! </strong> Putting a smile on your face and saving your time ."Your time is limited so dont waste it walking around looking for a house leave that to us"
         </div>
         <div class="about-img">
-        <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt=""></img>
+        <img src="https://img.etimg.com/thumb/width-420,height-315,imgsize-103583,resizemode-1,msid-68229406/wealth/real-estate/dream-home-beyond-budget-buy-starter-home-save-on-rent-shift-to-larger-unit-later-heres-how/home-getty.jpg" alt=""></img>
         </div>
         
     </div>
