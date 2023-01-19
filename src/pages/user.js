@@ -83,7 +83,7 @@ function User() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [contact, setContact] = useState("");
-  // const [date, setDate] = useState("");
+ 
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -130,7 +130,7 @@ function User() {
                                 onChange={handleChange}
                                 autocomplete="off"
                               />
-                              {/* <i class="input-icon uil uil-at"></i> */}
+                            
                             </div>
                            
                             <button class="btn mt-4">book</button>
