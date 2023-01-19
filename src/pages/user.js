@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "../css/user.css";
-// import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function User() {
   // const navigate = useNavigate;
   const [booking, setBooking] = useState({
-    booking_date:"",
+    booking_date: "",
   });
   const [userInfo, setUserInfo] = useState({
     full_name: "",
@@ -14,7 +14,7 @@ function User() {
     contact: "",
   });
 
-   function handleUserChange(e) {
+  function handleUserChange(e) {
     e.preventDefault();
     const { value, name } = e.currentTarget;
 
@@ -22,9 +22,9 @@ function User() {
       ...userInfo,
       [name]: value,
     });
-   }
+  }
 
-   const handleClientSubmit = async (e) => {
+  const handleClientSubmit = async (e) => {
     e.preventDefault();
     const resp = await fetch("/users", {
       method: "POST",
@@ -70,38 +70,31 @@ function User() {
         booking_date: booking.booking_date,
       }),
     });
-   await res.json();
+    await res.json();
     setBooking({
       booking_date: "",
-    })
+    });
 
-    alert(`Hello ${name}.... Cant wait to see you on ${date}. Thank you for trusting our services.`);
-
-    
-    
-   
+    alert(
+      `Hello ${name}.... Can't wait to see you on the set date. Thank You for trusting our services.`
+    );
   };
 
-      const [name, setName] = useState('');
-      const [email, setEmail] = useState('');
-      const [contact, setContact] = useState('');
-      const [date, setDate] = useState('');
-  
-  
-      const handleSubmit = (event) => {
-          event.preventDefault();
-          alert(`Hello ${name}.... For updates and any issues we will be reaching you through your email@   ${email}   or through your phone number ${contact} .go ahead and book the day you will visit your potential newhome`);
-      };
-  
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [contact, setContact] = useState("");
  
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert(
+      `Hello ${name}.... For updates and any issues we will be reaching you through your Email: ${email}   or through your Phone Number: ${contact} . Go ahead and book the day you will visit your potential new home.`
+    );
+  };
 
-  
   return (
     <div>
-      {/* <a href="https://front.codes/" class="logo" target="_blank">
-		<img src="https://assets.codepen.io/1462889/fcy.png" alt=""/>
-	</a> */}
+     
 
       <div class="section">
         <div class="container">
@@ -137,25 +130,16 @@ function User() {
                                 onChange={handleChange}
                                 autocomplete="off"
                               />
-                              {/* <i class="input-icon uil uil-at"></i> */}
+                            
                             </div>
-                            {/* <div class="form-group mt-2">
-                            <input
-                              type="password"
-                              name="logpass"
-                              class="form-style"
-                              placeholder="Your Password"
-                              id="logpass"
-                              autocomplete="off"
-                            />
-                            <i class="input-icon uil uil-lock-alt"></i>
-                          </div> */}
+                           
                             <button class="btn mt-4">book</button>
-                            {/* <p class="mb-0 mt-4 text-center">
-                            <a href="#0" class="link">
-                              Forgot your password?
-                            </a>
-                          </p> */}
+                          
+                            <p className="users-home">
+                              <NavLink to="/" className="gobackhome">
+                                Welcome Again
+                              </NavLink>
+                            </p>
                           </form>
                         </div>
                       </div>
@@ -165,7 +149,7 @@ function User() {
                       <div class="center-wrap">
                         <div class="section text-center">
                           <form onSubmit={handleSubmit}>
-                          <h4 class="mb-4 pb-3">Client Details</h4>
+                            <h4 class="mb-4 pb-3">Client Details</h4>
                             <div class="form-group mt-2">
                               <input
                                 type="text"
@@ -177,7 +161,7 @@ function User() {
                                 onChange={(e) => setName(e.target.value)}
                                 autocomplete="off"
                               />
-                              {/* <i class="input-icon uil uil-user"></i> */}
+                            
                             </div>
                             <div class="form-group mt-2">
                               <input
@@ -190,20 +174,23 @@ function User() {
                                 onChange={handleUserChange}
                                 autocomplete="off"
                               />
-                              {/* <i class="input-icon uil uil-user"></i> */}
+                             
                             </div>
                             <div class="form-group mt-2">
-                           <h1>   <input
-                                type="email"
-                                name="email"
-                                class="form-style"
-                                placeholder="Your Email"
-                                id="logemail"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)} 
-                                autocomplete="off"
-                              /> </h1>
-                              {/* <i class="input-icon uil uil-at"></i> */}
+                              <h1>
+                                {" "}
+                                <input
+                                  type="email"
+                                  name="email"
+                                  class="form-style"
+                                  placeholder="Your Email"
+                                  id="logemail"
+                                  value={email}
+                                  onChange={(e) => setEmail(e.target.value)}
+                                  autocomplete="off"
+                                />{" "}
+                              </h1>
+                             
                             </div>
                             <div class="form-group mt-2">
                               <input
@@ -216,9 +203,9 @@ function User() {
                                 onChange={(e) => setContact(e.target.value)}
                                 autocomplete="off"
                               />
-                              {/* <i class="input-icon uil uil-lock-alt"></i> */}
+                             
                             </div>
-                            <button class="btn mt-4" >submit</button>
+                            <button class="btn mt-4">submit</button>
                           </form>
                         </div>
                       </div>

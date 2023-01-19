@@ -1,9 +1,14 @@
 import React, { useState, useContext } from 'react';
 import { Modal, Button } from 'react-bootstrap';
+import '../css/owners.css'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { NavLink } from 'react-router-dom';
 
 const HouseForm = () => {
+
+
+
 const [houses, setHouses] = useState([]);
 const [inputs, setInputs] = useState({
 estate_name: '',  
@@ -135,6 +140,8 @@ Bedrooms:
 </div>
 </form>
 
+ 
+
   {/* The rest of the code can stay here */}
   <form className='form'   onSubmit={handleCreate}>
 <label className='label'>
@@ -167,8 +174,12 @@ Bedrooms:
 </label>
 <div class="text-center p-4">
           <button type="submit" class="subscribe">UPLOAD</button>
+          <NavLink className="dashboard-owners" to="/dashboard" >
+          See Dashboard
+        </NavLink>
         </div>
 </form>
+
 <h1 className='house1'>HOUSE LIST</h1>
    <Row>
 <ul>

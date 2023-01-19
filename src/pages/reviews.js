@@ -38,7 +38,7 @@ function Review() {
                 />
               </div>
               <div className='review_center'>
-                <p> <RiDoubleQuotesL className='quote'/> {review.comment} <RiDoubleQuotesR className='quote'/></p>
+                <p className='statement'> <RiDoubleQuotesL className='quote'/> {review.comment} <RiDoubleQuotesR className='quote'/></p>
               </div>
               {/* <div className='review_bottom'>
                 <p>name</p>
