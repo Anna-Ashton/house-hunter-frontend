@@ -83,7 +83,7 @@ function User() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [contact, setContact] = useState("");
-  const [date, setDate] = useState("");
+  // const [date, setDate] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
