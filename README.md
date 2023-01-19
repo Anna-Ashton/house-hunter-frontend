@@ -1,19 +1,51 @@
-# Getting Started with Create React App
+# EAGLES HOUSE HUNTERS
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Authors
+### Ann Karanja
+### Michael Kamau
+### Kevin Nzioki
+### Tracy Kariuki
+### Ian Chege
+### Doreen Musyoki
+### Nana Olomaiyani
+
+# Project Description
+This is a Housing Application that helps Landlords easily showcase their Rental Houses hence making it easier for tenants to find them.
+# Project Set-up and Installation
+Open Terminal from your machine (Ctrl+Alt+T)
+
+Run 'git clone git@github.com:Anna-Ashton/house-hunter-frontend.git'
+
+cd into the cloned repository
+
+Run 'code .' to open the project in visual studio
 
 In the project directory, you can run:
 
 ### `npm start`
 
 <!-- Runs the app in the development mode.\ -->
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:8000](http://localhost:8000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+# Technologies Used
+REACT JS - Used for the Responsiveness of the website\
+AXIOS - Used to handle http requests\
+CSS and REACT BOOTSTRAP - Used for styling our website\
+RUBY ON RAILS - Used to create the desired database\
+SQLITE - Used for the Database
+
+
+# Live Link to the project
+Copy paste the live link here
+
+# Available Scripts
+
+In the project directory, you can run:
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\

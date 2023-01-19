@@ -103,7 +103,7 @@ return (
 <Modal.Header>
 <Modal.Title>Edit House</Modal.Title>
 </Modal.Header>
-<Modal.Body>
+</Modal>
 <form onSubmit={handleUpdate}>
 <label className='label'>
 Image:
