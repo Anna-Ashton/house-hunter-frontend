@@ -17,15 +17,15 @@ function HouseFinder() {
   
 
   // handle submit 
-  function handleSubmit(e){
-    e.preventDefault();
-    // fetchHouses();
-  }
+  // function handleSubmit(e){
+  //   e.preventDefault();
+  //   fetchHouses();
+  // }
 
   // Handle booking a visit for a house
   function handleBookVisit(id) {
     axios
-      .post(`/${id}/bookings`)
+      .post('/bookings')
       .then(response => {
         console.log(response.data);
       })
