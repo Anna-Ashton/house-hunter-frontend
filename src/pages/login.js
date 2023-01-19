@@ -45,6 +45,11 @@ const Login = () => {
     });
   };
 
+  const handleLogout = useCallback(() => {
+    localStorage.removeItem('token');
+ 
+  }, []);
+
   function endNotification() {
     setNotify((notify) => !notify);
     navigate("/dashboard");
@@ -78,6 +83,11 @@ const Login = () => {
               />
             </div>
            
+            <button className="button login__submit">
+              <span className="button__text">Log In Now</span>
+              <i className="button__icon fas fa-chevron-right"></i>
+            </button>
+
             <button className="button login__submit">
               <span className="button__text">Log In Now</span>
               <i className="button__icon fas fa-chevron-right"></i>
