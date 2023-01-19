@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useCallback } from 'react';
 import "../css/login.css";
 
 const Login = () => {
@@ -45,6 +46,11 @@ const Login = () => {
     });
   };
 
+  const handleLogout = useCallback(() => {
+    localStorage.removeItem('token');
+ 
+  }, []);
+
   function endNotification() {
     setNotify((notify) => !notify);
     navigate("/dashboard");
@@ -82,19 +88,24 @@ const Login = () => {
               <span className="button__text">Log In Now</span>
               <i className="button__icon fas fa-chevron-right"></i>
             </button>
+              <div className="button__text">
+             <button  type="submit" className="button login__submit" onClick={handleLogout}>LOGOUT
+             <i className="button__icon fas fa-chevron-right"></i>
+             </button> 
+             </div>
             <NavLink to="/sign-up" className="gotosignup__text">
               Sign Up
             </NavLink>
           </form>
-          <div class="social-login">
+        </div>
+        {/* <div class="social-login">
             <h3>log in via</h3>
             <div class="social-icons">
               <p className="social-login__icon fab fa-instagram"></p>
               <p className="social-login__icon fab fa-facebook"></p>
               <p className="social-login__icon fab fa-twitter"></p>
             </div>
-          </div>
-        </div>
+           </div>  */}
         <div className="screen__background">
           <span className="screen__background__shape screen__background__shape4"></span>
           <span className="screen__background__shape screen__background__shape3"></span>
