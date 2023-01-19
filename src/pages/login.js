@@ -88,11 +88,16 @@ const Login = () => {
               <span className="button__text">Log In Now</span>
               <i className="button__icon fas fa-chevron-right"></i>
             </button>
-              <div className="button__text">
+              {/* <div className="button__text">
              <button  type="submit" className="button login__submit" onClick={handleLogout}>LOGOUT
              <i className="button__icon fas fa-chevron-right"></i>
              </button> 
-             </div>
+             </div> */}
+             <div className="button__text">
+             <NavLink  className="button login__submit" to='/'>LOGOUT
+             <i className="button__icon fas fa-chevron-right"></i>
+             </NavLink> 
+             </div> 
             <NavLink to="/sign-up" className="gotosignup__text">
               Sign Up
             </NavLink>
